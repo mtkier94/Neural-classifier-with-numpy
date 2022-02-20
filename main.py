@@ -7,7 +7,7 @@
 """
 
 __author__      = "Mark Kiermayer"
-__copyright__   = "GNU LGPLv3"
+__copyright__   = "MIT license"
 __credits__ =  "Christian Weiss"
 __version__ = "1.0.1"
 __maintainer__ = "Mark Kiermayer"
@@ -15,8 +15,8 @@ __email__ = "mark.kiermayer@hs-ruhrwest.de"
 __status__ = "Educational Use"
 
 
-from neuralNetwork import neunet
-from dataClassifier import get_data, visualize_data, preprocess
+from functions.neuralNetwork import neunet
+from functions.dataClassifier import get_data, visualize_data, preprocess
 
 if __name__=='__main__':
 
