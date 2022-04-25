@@ -29,7 +29,7 @@ def dphi(x, actv: str):
     '''
 
     if actv == 'relu':
-        return (x>=0)
+        return 0.0+(x>0)
     elif actv == 'linear':
         return 1
     elif actv == 'tanh':
@@ -42,7 +42,7 @@ def dphi(x, actv: str):
 
 class neunet:
 
-    def __init__(self, input: int, no_neurons: int, activation = 'relu'):
+    def __init__(self, input: int, no_neurons: int, activation_hidden = 'relu', activation_output = 'sigmoid'):
         '''
         Initialize the architecture of the neural network with one hidden layer.
         Sketch of architecture:
@@ -56,13 +56,13 @@ class neunet:
         '''
 
         # check for valid inputs - derivative only for the following four functions implemented
-        assert(activation in ['relu', 'linear', 'sigmoid', 'tanh'])
+        assert(activation_hidden in ['relu', 'linear', 'sigmoid', 'tanh'])
         assert(input in [2,3])
 
         # set object-attributes
         self.no_neurons = no_neurons
-        self.hidden_activation = activation
-        self.output_activation = 'linear' # can be changed to vales in ['relu', 'linear', 'sigmoid', 'tanh']
+        self.hidden_activation = activation_hidden
+        self.output_activation = activation_output # can be changed to vales in ['relu', 'linear', 'sigmoid', 'tanh']
         self.input = input
         self.output = 1
 
@@ -127,6 +127,7 @@ class neunet:
         --------
             y:      true target values
             cache:  dictionary of values cached during forward-propagation, see output of feedforward function
+                    use saved values to speed up computation
 
         Outputs:
         --------

@@ -33,18 +33,18 @@ if __name__=='__main__':
 
     # initialize model
     # optional: adjust width or (hidden-layer) activation function
-    model = neunet(input = input, no_neurons= 10, activation = 'sigmoid')
+    model = neunet(input = input, no_neurons= 50, activation_hidden = 'relu')
     # start training the model
     model.training(x_train, y_train, epochs = 30, learning_rate=0.1)
 
     visualize_data(x_train, model.feedforward(x_train)['a_o']>=0.5, r=radius)
 
-
+    exit()
     # Now again, but with pre-processed data
 
     # initialize model
     # optional: adjust width or (hidden-layer) activation function
-    model_pp = neunet(input = input, no_neurons= 10, activation = 'sigmoid')
+    model_pp = neunet(input = input, no_neurons= 10, activation_hidden = 'relu')
     # start training the model
     x_train_processed = preprocess(x_train)
     model_pp.training(x_train_processed, y_train, epochs = 30, learning_rate=0.01)
