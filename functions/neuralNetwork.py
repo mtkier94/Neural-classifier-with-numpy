@@ -42,7 +42,7 @@ def dphi(x, actv: str):
 
 class neunet:
 
-    def __init__(self, input: int, no_neurons: int, activation_hidden = 'relu', activation_output = 'sigmoid'):
+    def __init__(self, input: int, no_neurons: int, activation = 'relu', activation_output = 'sigmoid'):
         '''
         Initialize the architecture of the neural network with one hidden layer.
         Sketch of architecture:
@@ -56,12 +56,12 @@ class neunet:
         '''
 
         # check for valid inputs - derivative only for the following four functions implemented
-        assert(activation_hidden in ['relu', 'linear', 'sigmoid', 'tanh'])
+        assert(activation in ['relu', 'linear', 'sigmoid', 'tanh'])
         assert(input in [2,3])
 
         # set object-attributes
         self.no_neurons = no_neurons
-        self.hidden_activation = activation_hidden
+        self.hidden_activation = activation
         self.output_activation = activation_output # can be changed to vales in ['relu', 'linear', 'sigmoid', 'tanh']
         self.input = input
         self.output = 1
